@@ -1,0 +1,32 @@
+services:
+  web:
+    container_name: Practica_F
+    image: php:7.4-apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www
+      - ./confApache:/etc/apache2 
+    networks:
+      mi_red:
+        ipv4_address: 198.172.1.23
+  bind9:
+    container_name: practi
+    image: ubuntu/bind9
+    platform: linux/amd64
+    ports:
+      - 55:53
+    volumes:
+      - ./confDNS/conf:/etc/bind
+      - ./confDNS/zonas:/var/lib/bind
+    networks:
+      mi_red:
+        ipv4_address: 198.172.1.24
+      
+networks:
+  mi_red:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 198.172.0.0/16
