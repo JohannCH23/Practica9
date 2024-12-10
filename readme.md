@@ -45,6 +45,8 @@ networks:
 ### 2. O DNS ten que resolver dous dominios á la ip do apache.
 
 Para isto executa na terminal o comando (sudo nano /etc/systemd/resolved.conf) isto para poder abrir o ficheiro e editalo. Ubicamos onde pon '#DNS', eliminamos o '#' para activalo e colocamos a ip do contedor co porto, quedando da seguinte forma: DNS=192.172.1.24#55.
+ 
+E na configuración wi-fi desactivamos o DNS.
 
 Isto para que ao correr o contedor o sistema poida resolver as ips que queremos crear.
 
